@@ -1,48 +1,57 @@
+/* General Styles */
 body {
     margin: 0;
     font-family: 'Arial', sans-serif;
-    background: #fff4e6; /* Light warm background color like a soft bagel crust */
-    color: #3d3d3d; /* A warm brown text color to match the theme */
+    background: #fff4e6; /* Light warm background color */
+    color: #3d3d3d; /* Warm brown text color */
     line-height: 1.6;
 }
 
-.page {
+/* Parallax Sections */
+.parallax-section {
     height: 100vh; /* Full viewport height */
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
-    transition: transform 0.5s ease-in-out;
-    padding: 20px;
+    position: relative;
+    overflow: hidden;
 }
 
-#section1 {
-    background-color: #ffe4b5; /* Soft warm color, like lightly toasted bagels */
-    background-image: url('bagel-background.jpg'); /* Optional, you can add a bagel-themed background image */
+.parallax-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
     background-size: cover;
-    color: #5d4037; /* A darker brown for text */
-    font-size: 2em;
+    background-position: center;
+    z-index: -1;
+    transform: translateZ(-1px) scale(2); /* Creates the parallax effect */
 }
 
-#section2 {
-    background-color: #fff8e1; /* Lighter golden yellow, like cream cheese or butter */
-    background-image: url('toppings-background.jpg'); /* Optional: image of toppings like cream cheese, veggies, etc. */
-    background-size: cover;
-    color: #3e2723;
+#section1::before {
+    background-image: url('bagel-background.jpg');
 }
 
-#section3 {
-    background-color: #fbe9e7; /* A soft pinkish tone for a cozy, warm vibe */
-    background-image: url('coffee-background.jpg'); /* Optional: background with coffee or breakfast setting */
-    background-size: cover;
-    color: #3e2723;
+#section2::before {
+    background-image: url('toppings-background.jpg');
+}
+
+#section3::before {
+    background-image: url('coffee-background.jpg');
+}
+
+.content {
+    z-index: 1;
+    color: white;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5); /* Improves text readability */
 }
 
 h1 {
     font-size: 3em;
     margin-bottom: 20px;
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2); /* Soft shadow for readability */
 }
 
 p {
@@ -55,17 +64,12 @@ html {
     scroll-behavior: smooth;
 }
 
-/* Adding some subtle transitions for the sections */
-.page {
-    transition: transform 1s ease;
-}
-
 /* Order Now button styles */
 .order-btn {
     position: fixed;
     bottom: 20px;
     right: 20px;
-    background-color: #f5a623; /* A warm golden color */
+    background-color: #f5a623; /* Warm golden color */
     color: white;
     padding: 15px 25px;
     border-radius: 30px;
@@ -76,5 +80,21 @@ html {
 }
 
 .order-btn:hover {
-    background-color: #d88b22; /* A darker shade when hovered */
+    background-color: #d88b22; /* Darker shade on hover */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2em;
+    }
+
+    p {
+        font-size: 1.2em;
+    }
+
+    .order-btn {
+        font-size: 1em;
+        padding: 10px 20px;
+    }
 }
