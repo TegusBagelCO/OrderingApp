@@ -1,30 +1,80 @@
 body {
     margin: 0;
-    font-family: Arial, sans-serif;
+    font-family: 'Arial', sans-serif;
+    background: #fff4e6; /* Light warm background color like a soft bagel crust */
+    color: #3d3d3d; /* A warm brown text color to match the theme */
+    line-height: 1.6;
 }
 
 .page {
     height: 100vh; /* Full viewport height */
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
     transition: transform 0.5s ease-in-out;
+    padding: 20px;
 }
 
 #section1 {
-    background-color: #f0f0f0;
+    background-color: #ffe4b5; /* Soft warm color, like lightly toasted bagels */
+    background-image: url('bagel-background.jpg'); /* Optional, you can add a bagel-themed background image */
+    background-size: cover;
+    color: #5d4037; /* A darker brown for text */
+    font-size: 2em;
 }
 
 #section2 {
-    background-color: #cccccc;
+    background-color: #fff8e1; /* Lighter golden yellow, like cream cheese or butter */
+    background-image: url('toppings-background.jpg'); /* Optional: image of toppings like cream cheese, veggies, etc. */
+    background-size: cover;
+    color: #3e2723;
 }
 
 #section3 {
-    background-color: #999999;
+    background-color: #fbe9e7; /* A soft pinkish tone for a cozy, warm vibe */
+    background-image: url('coffee-background.jpg'); /* Optional: background with coffee or breakfast setting */
+    background-size: cover;
+    color: #3e2723;
+}
+
+h1 {
+    font-size: 3em;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2); /* Soft shadow for readability */
+}
+
+p {
+    font-size: 1.5em;
+    line-height: 1.4;
 }
 
 /* Smooth scrolling effect */
 html {
     scroll-behavior: smooth;
+}
+
+/* Adding some subtle transitions for the sections */
+.page {
+    transition: transform 1s ease;
+}
+
+/* Order Now button styles */
+.order-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #f5a623; /* A warm golden color */
+    color: white;
+    padding: 15px 25px;
+    border-radius: 30px;
+    font-size: 1.2em;
+    text-decoration: none;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s;
+}
+
+.order-btn:hover {
+    background-color: #d88b22; /* A darker shade when hovered */
 }
