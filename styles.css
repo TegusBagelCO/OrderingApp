@@ -1,0 +1,30 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+.page {
+    height: 100vh; /* Full viewport height */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    transition: transform 0.5s ease-in-out;
+}
+
+#section1 {
+    background-color: #f0f0f0;
+}
+
+#section2 {
+    background-color: #cccccc;
+}
+
+#section3 {
+    background-color: #999999;
+}
+
+/* Smooth scrolling effect */
+html {
+    scroll-behavior: smooth;
+}
