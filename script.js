@@ -1,29 +1,16 @@
 // JavaScript for Horizontal Scroll on Vertical Scroll
 const container = document.querySelector('.horizontal-scroll-container');
-let isScrolling;
 
-container.addEventListener('scroll', () => {
-    window.clearTimeout(isScrolling);
-    isScrolling = setTimeout(() => {
-        // Snap to the nearest section
-        const sections = document.querySelectorAll('.horizontal-section');
-        let closestSection = null;
-        let closestDistance = Infinity;
-
-        sections.forEach(section => {
-            const rect = section.getBoundingClientRect();
-            const distance = Math.abs(rect.left);
-
-            if (distance < closestDistance) {
-                closestDistance = distance;
-                closestSection = section;
-            }
-        });
-
-        if (closestSection) {
-            closestSection.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'start' });
-        }
-    }, 100); // Adjust the timeout for smoother snapping
+// Add event listener for vertical scroll
+window.addEventListener('wheel', (e) => {
+    e.preventDefault(); // Prevent default vertical scroll
+    if (e.deltaY > 0) {
+        // Scroll down (move right)
+        container.scrollBy({ left: window.innerWidth, behavior: 'smooth' });
+    } else {
+        // Scroll up (move left)
+        container.scrollBy({ left: -window.innerWidth, behavior: 'smooth' });
+    }
 });
 
 // Optional: Add touch swipe support for mobile devices
@@ -49,3 +36,8 @@ function handleSwipe() {
         container.scrollBy({ left: window.innerWidth, behavior: 'smooth' });
     }
 }
+
+// Debugging: Log scroll events
+container.addEventListener('scroll', () => {
+    console.log('Scroll position:', container.scrollLeft);
+});
