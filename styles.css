@@ -36,7 +36,7 @@ body {
 }
 
 #section2::before {
-    background-image: url('toppings-background.jpg');
+    background-image: url('images/toppings-background.jpg');
 }
 
 #section3::before {
