@@ -2,14 +2,15 @@
 body {
     margin: 0;
     font-family: 'Arial', sans-serif;
-    background: #fff4e6; /* Light warm background color */
-    color: #3d3d3d; /* Warm brown text color */
+    background: #fff4e6;
+    color: #3d3d3d;
     line-height: 1.6;
+    overflow-x: hidden; /* Prevent horizontal scroll */
 }
 
 /* Parallax Sections */
 .parallax-section {
-    height: 100vh; /* Full viewport height */
+    height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -18,8 +19,7 @@ body {
     overflow: hidden;
 }
 
-.parallax-section::before {
-    content: '';
+.parallax-background {
     position: absolute;
     top: 0;
     left: 0;
@@ -28,32 +28,14 @@ body {
     background-size: cover;
     background-position: center;
     z-index: -1;
-    transform: translateZ(-1px) scale(2); /* Creates the parallax effect */
+    transform: translateZ(0); /* Optimize for performance */
+    will-change: transform; /* Hint for smoother animations */
 }
 
-#section1::before {
-    background-image: url('images/bagel-background.jpeg');
-}
-
-#section2::before {
-    background-image: url('images/toppings-background.jpg');
-}
-
-#section3::before {
-    background-image: url('images/coffee-background.jpg');
-}
-
-#section4::before {
-    background-image: url('images/Snacks.jpg');
-}
-
-#section5::before {
-    background-image: url('images/merch.png');
-}
 .content {
     z-index: 1;
     color: white;
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5); /* Improves text readability */
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
 }
 
 h1 {
@@ -76,18 +58,19 @@ html {
     position: fixed;
     bottom: 20px;
     right: 20px;
-    background-color: #f5a623; /* Warm golden color */
+    background-color: #f5a623;
     color: white;
     padding: 15px 25px;
     border-radius: 30px;
     font-size: 1.2em;
     text-decoration: none;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    transition: background-color 0.3s;
+    transition: background-color 0.3s, transform 0.3s;
 }
 
 .order-btn:hover {
-    background-color: #d88b22; /* Darker shade on hover */
+    background-color: #d88b22;
+    transform: scale(1.05); /* Add a slight zoom effect on hover */
 }
 
 /* Responsive Design */
