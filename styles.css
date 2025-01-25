@@ -46,6 +46,10 @@ body {
 #section4::before {
     background-image: url('images/Snacks.jpg');
 }
+
+#section5::before {
+    background-image: url('images/merch.jpg');
+}
 .content {
     z-index: 1;
     color: white;
