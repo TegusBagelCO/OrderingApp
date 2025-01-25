@@ -48,7 +48,7 @@ body {
 }
 
 #section5::before {
-    background-image: url('images/merch.jpg');
+    background-image: url('images/merch.png');
 }
 .content {
     z-index: 1;
