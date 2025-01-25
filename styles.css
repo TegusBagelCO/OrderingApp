@@ -6,34 +6,20 @@ body {
     color: #3d3d3d;
     line-height: 1.6;
     overflow-x: hidden; /* Prevent horizontal scroll */
-    overflow-y: hidden; /* Hide vertical scroll */
 }
 
-/* Container for horizontal sections */
-.horizontal-scroll-container {
-    display: flex;
-    flex-direction: row; /* Arrange sections horizontally */
-    width: 100vw;
-    height: 100vh;
-    scroll-snap-type: x mandatory; /* Snap sections into place */
-    overflow-x: scroll; /* Enable horizontal scrolling */
-    scroll-behavior: smooth; /* Smooth scrolling */
-}
-
-/* Individual sections */
-.horizontal-section {
-    flex: 0 0 100vw; /* Each section takes up the full viewport width */
+/* Parallax Sections */
+.parallax-section {
     height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
     position: relative;
-    scroll-snap-align: start; /* Snap sections to the start of the viewport */
+    overflow: hidden;
 }
 
-/* Background images for sections */
-.horizontal-section .parallax-background {
+.parallax-background {
     position: absolute;
     top: 0;
     left: 0;
@@ -42,9 +28,10 @@ body {
     background-size: cover;
     background-position: center;
     z-index: -1;
+    transform: translateZ(0); /* Optimize for performance */
+    will-change: transform; /* Hint for smoother animations */
 }
 
-/* Content styling */
 .content {
     z-index: 1;
     color: white;
@@ -59,6 +46,11 @@ h1 {
 p {
     font-size: 1.5em;
     line-height: 1.4;
+}
+
+/* Smooth scrolling effect */
+html {
+    scroll-behavior: smooth;
 }
 
 /* Order Now button styles */
