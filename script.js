@@ -18,14 +18,16 @@ function applyParallax() {
     });
 }
 
-// Smooth scrolling for navigation links
-document.querySelectorAll('.sticky-nav a').forEach(anchor => {
+// Smooth scrolling for sidebar links
+document.querySelectorAll('.sidebar a').forEach(anchor => {
     anchor.addEventListener('click', function(e) {
         e.preventDefault();
         const targetId = this.getAttribute('href');
         document.querySelector(targetId).scrollIntoView({
             behavior: 'smooth'
         });
+        // Hide sidebar after clicking a link
+        sidebar.classList.remove('active');
     });
 });
 
@@ -36,4 +38,12 @@ document.querySelector('.back-to-top').addEventListener('click', function(e) {
         top: 0,
         behavior: 'smooth'
     });
+});
+
+// Toggle Sidebar Menu
+const hamburger = document.getElementById('hamburger');
+const sidebar = document.getElementById('sidebar');
+
+hamburger.addEventListener('click', function() {
+    sidebar.classList.toggle('active');
 });
