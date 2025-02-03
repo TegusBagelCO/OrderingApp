@@ -1,49 +1,91 @@
-// JavaScript for Parallax Effect
-document.addEventListener('scroll', function() {
-    requestAnimationFrame(applyParallax);
+// DOM Elements
+const header = document.querySelector('header');
+const text = document.querySelector('#text');
+const sun = document.querySelector('#sun');
+const clouds = document.querySelector('#clouds');
+const birds = document.querySelector('#birds');
+const mountains = document.querySelector('#mountains');
+const buildings = document.querySelector('#buildings');
+const storefront = document.querySelector('#storefront');
+const morningsteam = document.querySelector('#morning-steam');
+const ground = document.querySelector('#ground');
+const explore = document.querySelector('#explore');
+
+// Character Elements
+const characters = document.querySelectorAll('.floating');
+const storyPanels = document.querySelectorAll('.story-panel');
+
+// Animation Variables
+let lastScrollY = 0;
+let ticking = false;
+const characterStartPositions = new Map();
+
+// Store initial character positions
+characters.forEach(char => {
+    characterStartPositions.set(char.id, {
+        left: parseFloat(getComputedStyle(char).left),
+        top: parseFloat(getComputedStyle(char).top)
+    });
 });
 
-function applyParallax() {
-    const parallaxSections = document.querySelectorAll('.parallax-section');
-    parallaxSections.forEach(section => {
-        const background = section.querySelector('.parallax-background');
-        if (background) {
-            const scrollPosition = window.pageYOffset;
-            const sectionTop = section.offsetTop;
-            const sectionHeight = section.offsetHeight;
-            const scrollPercent = (scrollPosition - sectionTop) / sectionHeight;
-            const parallaxOffset = scrollPercent * 50; // Adjust the multiplier for speed
-            background.style.transform = `translateY(${parallaxOffset}px)`;
+// Parallax Scroll Effect
+function updateParallax() {
+    const scrolled = window.scrollY;
+
+    // Update parallax elements
+    text.style.transform = `translateY(${scrolled * -0.2}px)`;
+    sun.style.transform = `translateY(${scrolled * 0.5}px)`;
+    clouds.style.transform = `translateX(${scrolled * 0.3}px)`;
+    birds.style.transform = `translate(${scrolled * 0.4}px, ${scrolled * -0.1}px)`;
+    mountains.style.transform = `translateY(${scrolled * 0.15}px)`;
+    buildings.style.transform = `translateY(${scrolled * 0.1}px)`;
+    morningsteam.style.transform = `translateY(${scrolled * -0.2}px)`;
+
+    // Update character positions
+    characters.forEach(char => {
+        const startPos = characterStartPositions.get(char.id);
+        if (startPos) {
+            const offsetX = (scrolled - char.offsetTop) * 0.1;
+            char.style.transform = `translate(${offsetX}px, ${Math.sin(scrolled * 0.002) * 20}px)`;
         }
     });
+
+    // Reveal story panels on scroll
+    storyPanels.forEach(panel => {
+        const panelTop = panel.getBoundingClientRect().top;
+        if (panelTop < window.innerHeight * 0.75) {
+            panel.classList.add('active');
+        }
+    });
+
+    ticking = false;
 }
 
-// Smooth scrolling for sidebar links
-document.querySelectorAll('.sidebar a').forEach(anchor => {
+// Optimized scroll handler
+function onScroll() {
+    lastScrollY = window.scrollY;
+    if (!ticking) {
+        requestAnimationFrame(updateParallax);
+        ticking = true;
+    }
+}
+
+// Smooth Scroll
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function(e) {
         e.preventDefault();
-        const targetId = this.getAttribute('href');
-        document.querySelector(targetId).scrollIntoView({
-            behavior: 'smooth'
-        });
-        // Hide sidebar after clicking a link
-        sidebar.classList.remove('active');
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+            target.scrollIntoView({
+                behavior: 'smooth'
+            });
+        }
     });
 });
 
-// Back to Top button
-document.querySelector('.back-to-top').addEventListener('click', function(e) {
-    e.preventDefault();
-    window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
-    });
-});
-
-// Toggle Sidebar Menu
-const hamburger = document.getElementById('hamburger');
-const sidebar = document.getElementById('sidebar');
-
-hamburger.addEventListener('click', function() {
-    sidebar.classList.toggle('active');
-});
+// Social Media Links
+const socialLinks = {
+    instagram: 'https://www.instagram.com/tegusbagelco',
+    facebook: 'https://www.facebook.com/tegusbagelco',
+    whatsapp: 'https://wa.me/yournumber',
+    store: 'https://tegusbagelco.zobaze.shop/catalog'
