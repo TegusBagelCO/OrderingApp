@@ -1,83 +1,145 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tegus Bagel Company</title>
-    <link rel="stylesheet" href="styles.css">
+    <meta name="description" content="Explora Tegus Bagel Company, el mejor lugar para bagels frescos y café en Tegucigalpa.">
+
     <!-- Favicon -->
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
     <link rel="manifest" href="/site.webmanifest">
+
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="animation.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+    <title>Tegus Bagel Company</title>
 </head>
+
 <body>
-    <!-- Hamburger Icon for Mobile -->
-    <div class="hamburger" id="hamburger">
-        <span></span>
-        <span></span>
-        <span></span>
+    <!-- Header/Nav Bar -->
+    <header id="header">
+        <a href="#" class="logo">Tegus Bagel Co.</a>
+        <ul>
+            <li><a href="#" class="active">Inicio</a></li>
+            <li><a href="#sec">Bagels</a></li>
+            <li><a href="#footer">Contacto</a></li>
+        </ul>
+    </header>
+
+    <!-- Top Section (Morning Scene) -->
+    <section>
+        <img src="images/sky.png" id="sky" class="wallpaper">
+        <img src="images/sun.png" id="sun">
+        <img src="images/clouds.png" id="clouds" class="wallpaper">
+        <h2 id="text"><span>"Empieza tu día con"</span><br>Tegus Bagel</h2>
+        <img src="images/city-back.png" id="city-back">
+        <img src="images/birds.png" id="birds">
+        <a href="#sec" id="explore">Explorar</a>
+        <img src="images/city-front.png" id="city-front">
+        <img src="images/steam.png" id="steam">
+        <img src="images/counter.png" id="counter">
+    </section>
+
+    <!-- Main Content Section -->
+    <div class="sec" id="sec">
+        <!-- Background layers -->
+        <img src="images/bg-layer1.png" id="bg1" class="bg-layers">
+        <img src="images/bg-layer2.png" id="bg2" class="bg-layers">
+        <img src="images/bg-layer3.png" id="bg3" class="bg-layers">
+
+        <!-- Content -->
+        <h2>Nuestros Bagels</h2>
+        <div id="location">Tegucigalpa, Honduras</div>
+
+        <br>
+
+        <div class="glass">
+            <h3>Los Originales</h3>
+            <p>
+                Nuestros bagels son horneados frescos cada mañana, siguiendo recetas tradicionales 
+                con un toque hondureño único. Cada bagel es preparado a mano con ingredientes 
+                de la más alta calidad.
+            </p>
+        </div>
+
+        <br>
+
+        <div class="glass">
+            <h3>Nuestras Especialidades</h3>
+            <ul>
+                <li>
+                    <h4>Bagels Tradicionales</h4>
+                    <p>
+                        Plain, Everything, Sesame, Onion, Garlic, Poppy Seed, y más opciones 
+                        clásicas para todos los gustos.
+                    </p>
+                </li>
+                <li>
+                    <h4>Schmears Artesanales</h4>
+                    <p>
+                        Cream cheese preparado en casa con diferentes sabores y opciones, 
+                        desde clásico hasta jalapeño y vegetales.
+                    </p>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Animated elements -->
+        <img src="images/bagel1.png" id="bagel1" class="floating">
+        <img src="images/bagel2.png" id="bagel2" class="floating">
+        <img src="images/coffee.png" id="coffee" class="floating">
+        <img src="images/decor.png" id="decor" class="floating">
+
+        <!-- Steam animation container -->
+        <div class="steam-bubbles">
+            <img src="images/steam-particle.png" alt="">
+            <img src="images/steam-particle.png" alt="">
+            <img src="images/steam-particle.png" alt="">
+            <img src="images/steam-particle.png" alt="">
+            <img src="images/steam-particle.png" alt="">
+        </div>
     </div>
 
-    <!-- Sidebar Menu for Mobile -->
-    <nav class="sidebar" id="sidebar">
-        <ul>
-            <li><a href="#section1">Inicio</a></li>
-            <li><a href="#section2">Bagels</a></li>
-            <li><a href="#section3">Café</a></li>
-            <li><a href="#section4">Snacks</a></li>
-            <li><a href="#section5">Mercancía</a></li>
-        </ul>
-    </nav>
-
-    <!-- Parallax Sections -->
-    <section class="parallax-section" id="section1">
-        <div class="parallax-background" style="background-image: url('images/bagel-background.jpeg');"></div>
-        <div class="content">
-            <h1>Bienvenido a Tegus Bagel Co.</h1>
-            <p>¡Empieza tu mañana al estilo bagel! Desplácese hacia abajo para ver opciones deliciosas...</p>
+    <!-- Footer -->
+    <div class="footer" id="footer">
+        Síguenos en:
+        <div class="wrapper">
+            <div class="social-media">
+                <div class="icon">
+                    <i class="fa-brands fa-instagram"></i>
+                </div>
+                <span>Instagram</span>
+            </div>
+            <div class="social-media">
+                <div class="icon">
+                    <i class="fa-brands fa-facebook"></i>
+                </div>
+                <span>Facebook</span>
+            </div>
+            <div class="social-media">
+                <div class="icon">
+                    <i class="fa-brands fa-whatsapp"></i>
+                </div>
+                <span>WhatsApp</span>
+            </div>
+            <div class="social-media">
+                <div class="icon">
+                    <i class="fa-solid fa-store"></i>
+                </div>
+                <span>Tienda</span>
+            </div>
         </div>
-    </section>
+        <span>Un sitio creado con ♥ por <span id="creator-name">Tegus Bagel Co.</span><br>Tegucigalpa, Honduras</span>
+    </div>
 
-    <section class="parallax-section" id="section2">
-        <div class="parallax-background" style="background-image: url('images/toppings-background.jpg');"></div>
-        <div class="content">
-            <h1>Bagels y aderezos</h1>
-            <p>Elija entre una variedad de bagels frescos y deliciosos aderezos para satisfacer sus antojos.</p>
-        </div>
-    </section>
+    <!-- Back to top button -->
+    <a id="top" href="#"> <i class="fas fa-arrow-up"></i> </a>
 
-    <section class="parallax-section" id="section3">
-        <div class="parallax-background" style="background-image: url('images/coffee-background.jpg');"></div>
-        <div class="content">
-            <h1>Combinaciones de desayuno</h1>
-            <p>¡Combina tus bagels con una bebida refrescante o una taza de café caliente!</p>
-        </div>
-    </section>
-
-    <section class="parallax-section" id="section4">
-        <div class="parallax-background" style="background-image: url('images/snacks.jpg');"></div>
-        <div class="content">
-            <h1>Snacks y Postres</h1>
-            <p>¿Tienes antojos de algo dulce por la mañana? Disfruta de nuestros deliciosos snacks y postres para un rápido impulso de energía o para satisfacer tus antojos.</p>
-        </div>
-    </section>
-
-    <section class="parallax-section" id="section5">
-        <div class="parallax-background" style="background-image: url('images/merch.png');"></div>
-        <div class="content">
-            <h1>Mercancía Tegus Bagel Co.</h1>
-            <p>¡Llévate contigo el universo de Los Schmearables! Descubre nuestra increíble colección de mercancía, desde llaveros con forma de bagel hasta camisetas, arte para tu pared y mucho más. ¡Convierte tu amor por los bagels en estilo!</p>
-        </div>
-    </section>
-
-    <!-- Order Now button -->
-    <a href="https://tegusbagelco.zobaze.shop/catalog" class="order-btn">Ordene ahora</a>
-
-    <!-- Back to Top Button -->
-    <a href="#section1" class="back-to-top">↑</a>
-
-    <!-- JavaScript for Parallax, Smooth Scrolling, and Mobile Menu -->
+    <!-- JavaScript -->
     <script src="script.js"></script>
 </body>
 </html>
