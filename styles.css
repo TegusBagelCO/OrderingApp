@@ -1,174 +1,155 @@
 /* General Styles */
-body {
+body, html {
     margin: 0;
-    font-family: 'Arial', sans-serif;
-    background: #fff4e6;
-    color: #3d3d3d;
-    line-height: 1.6;
-    overflow-x: hidden; /* Prevent horizontal scroll */
+    padding: 0;
+    font-family: Arial, sans-serif;
+    box-sizing: border-box;
 }
 
-/* Parallax Sections */
-.parallax-section {
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+/* Header and Navigation */
+header {
+    background-color: #8B4513;
+    color: white;
+    padding: 20px;
     text-align: center;
-    position: relative;
-    overflow: hidden;
-}
-
-.parallax-background {
-    position: absolute;
+    position: sticky;
     top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-size: cover;
-    background-position: center;
-    z-index: -1;
-    transform: translateZ(0); /* Optimize for performance */
-    will-change: transform; /* Hint for smoother animations */
-}
-
-.content {
-    z-index: 1;
-    color: white;
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
-}
-
-h1 {
-    font-size: 3em;
-    margin-bottom: 20px;
-}
-
-p {
-    font-size: 1.5em;
-    line-height: 1.4;
-}
-
-/* Smooth scrolling effect */
-html {
-    scroll-behavior: smooth;
-}
-
-/* Order Now button styles */
-.order-btn {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    background-color: #f5a623;
-    color: white;
-    padding: 15px 25px;
-    border-radius: 30px;
-    font-size: 1.2em;
-    text-decoration: none;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    transition: background-color 0.3s, transform 0.3s;
-}
-
-.order-btn:hover {
-    background-color: #d88b22;
-    transform: scale(1.05); /* Add a slight zoom effect on hover */
-}
-
-/* Back to Top Button */
-.back-to-top {
-    position: fixed;
-    bottom: 20px;
-    left: 20px;
-    background-color: #f5a623;
-    color: white;
-    padding: 10px 15px;
-    border-radius: 50%;
-    font-size: 1.5em;
-    text-decoration: none;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    transition: background-color 0.3s, transform 0.3s;
-}
-
-.back-to-top:hover {
-    background-color: #d88b22;
-    transform: scale(1.1);
-}
-
-/* Hamburger Icon for Mobile */
-.hamburger {
-    display: none; /* Hidden by default */
-    position: fixed;
-    top: 20px;
-    left: 20px;
-    flex-direction: column;
-    justify-content: space-around;
-    width: 30px;
-    height: 25px;
-    cursor: pointer;
     z-index: 1000;
 }
 
-.hamburger span {
-    width: 100%;
-    height: 3px;
-    background-color: #3d3d3d;
-    transition: all 0.3s;
+header a.logo {
+    font-size: 2em;
+    font-weight: bold;
+    text-decoration: none;
+    color: white;
 }
 
-/* Sidebar Menu for Mobile */
+header ul {
+    list-style: none;
+    padding: 0;
+}
+
+header ul li {
+    display: inline;
+    margin: 0 15px;
+}
+
+header ul li a {
+    text-decoration: none;
+    color: white;
+    font-size: 1.2em;
+}
+
+header ul li a.active {
+    text-decoration: underline;
+}
+
+/* Mobile Menu */
+.hamburger {
+    display: none;
+    cursor: pointer;
+}
+
+.hamburger span {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: white;
+    margin: 5px 0;
+}
+
 .sidebar {
+    display: none;
     position: fixed;
     top: 0;
-    left: -250px; /* Hide sidebar by default */
+    left: 0;
     width: 250px;
-    height: 100vh;
-    background-color: rgba(255, 255, 255, 0.9);
-    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
-    z-index: 999;
-    transition: left 0.3s;
+    height: 100%;
+    background-color: #8B4513;
+    padding-top: 50px;
+    transition: 0.3s;
+}
+
+.sidebar.active {
+    display: block;
 }
 
 .sidebar ul {
     list-style: none;
-    margin: 0;
-    padding: 60px 20px 20px;
+    padding: 0;
 }
 
 .sidebar ul li {
-    margin-bottom: 15px;
+    margin: 15px 0;
+    text-align: center;
 }
 
 .sidebar ul li a {
     text-decoration: none;
-    color: #3d3d3d;
-    font-size: 1.1em;
-    transition: color 0.3s;
+    color: white;
+    font-size: 1.2em;
 }
 
-.sidebar ul li a:hover {
-    color: #f5a623;
-}
-
-/* Show Sidebar when Active */
-.sidebar.active {
-    left: 0;
-}
-
-/* Responsive Design */
 @media (max-width: 768px) {
-    h1 {
-        font-size: 2em;
-    }
-
-    p {
-        font-size: 1.2em;
-    }
-
-    .order-btn {
-        font-size: 1em;
-        padding: 10px 20px;
+    header ul {
+        display: none;
     }
 
     .hamburger {
-        display: flex; /* Show hamburger icon on mobile */
+        display: block;
     }
+}
+
+/* Footer and Other Styles */
+.footer {
+    background-color: #333;
+    color: white;
+    padding: 40px 0;
+    text-align: center;
+}
+
+.footer .social-media {
+    display: inline-block;
+    margin: 10px;
+    cursor: pointer;
+}
+
+.footer .social-media .icon {
+    display: inline-block;
+    background: #8B4513;
+    padding: 10px;
+    border-radius: 50%;
+    color: white;
+    font-size: 1.5em;
+    margin-bottom: 5px;
+}
+
+.footer .social-media:hover .icon {
+    background: #a0522d;
+}
+
+#top {
+    position: fixed;
+    right: 30px;
+    bottom: 30px;
+    background: #8B4513;
+    padding: 10px;
+    color: white;
+    border-radius: 50%;
+    font-size: 2em;
+    cursor: pointer;
+    display: none;
+    transition: background 0.3s;
+}
+
+#top.show {
+    display: block;
+}
+
+#top:hover {
+    background: #a0522d;
+}
+
+#top i {
+    font-size: 1.5em;
 }
