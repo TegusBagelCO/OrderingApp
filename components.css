@@ -20,7 +20,7 @@
 .order-btn {
     position: fixed;
     bottom: 20px;
-    left: 20px;
+    right: 20px;
     background: #8B4513;
     color: white;
     padding: 10px 20px;
