@@ -27,11 +27,21 @@ document.addEventListener('click', (e) => {
 
 // Back-to-Top Button
 const backToTopButton = document.getElementById('top');
+const footer = document.querySelector('.footer');
+
 window.addEventListener('scroll', () => {
+    const footerRect = footer.getBoundingClientRect();
+    const buttonRect = backToTopButton.getBoundingClientRect();
+    const bottomOffset = 30; // Default bottom position
+
     if (window.innerHeight + window.scrollY >= document.body.offsetHeight - 100) {
         backToTopButton.classList.add('show');
+        if (footerRect.top <= window.innerHeight) {
+            backToTopButton.style.bottom = `${window.innerHeight - footerRect.top + bottomOffset}px`;
+        }
     } else {
         backToTopButton.classList.remove('show');
+        backToTopButton.style.bottom = `${bottomOffset}px`;
     }
 });
 
