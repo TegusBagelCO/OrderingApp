@@ -13,21 +13,22 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 const hamburger = document.getElementById('hamburger');
 const sidebar = document.getElementById('sidebar');
 
-hamburger.addEventListener('click', () => {
+hamburger.addEventListener('click', (e) => {
+    e.stopPropagation();
     sidebar.classList.toggle('active');
 });
 
-// Close Sidebar on Link Click
-document.querySelectorAll('.sidebar a').forEach(link => {
-    link.addEventListener('click', () => {
+// Close Sidebar on Link Click or Tap Outside
+document.addEventListener('click', (e) => {
+    if (sidebar.classList.contains('active') && !sidebar.contains(e.target) && !hamburger.contains(e.target)) {
         sidebar.classList.remove('active');
-    });
+    }
 });
 
 // Back-to-Top Button
 const backToTopButton = document.getElementById('top');
 window.addEventListener('scroll', () => {
-    if (window.scrollY > 600) {
+    if (window.innerHeight + window.scrollY >= document.body.offsetHeight - 100) {
         backToTopButton.classList.add('show');
     } else {
         backToTopButton.classList.remove('show');
@@ -38,5 +39,18 @@ backToTopButton.addEventListener('click', () => {
     window.scrollTo({
         top: 0,
         behavior: 'smooth'
+    });
+});
+
+// Floating Characters Interaction
+document.querySelectorAll('.floating-character').forEach(character => {
+    character.addEventListener('mousemove', (e) => {
+        const x = e.clientX - character.getBoundingClientRect().left;
+        const y = e.clientY - character.getBoundingClientRect().top;
+        character.style.transform = `translate(${x * 0.1}px, ${y * 0.1}px)`;
+    });
+
+    character.addEventListener('mouseleave', () => {
+        character.style.transform = 'translate(0, 0)';
     });
 });
