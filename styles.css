@@ -131,7 +131,7 @@ header ul li a.active {
 /* Back-to-Top Button */
 #top {
     position: fixed;
-    right: 30px;
+    left: 30px;
     bottom: 30px;
     background: #8B4513;
     padding: 10px;
