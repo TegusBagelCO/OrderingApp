@@ -37,13 +37,3 @@ document.querySelector('.back-to-top').addEventListener('click', function(e) {
         behavior: 'smooth'
     });
 });
-
-// Add floating characters animation
-document.addEventListener("mousemove", (event) => {
-    let floatingCharacters = document.querySelectorAll(".floating-char");
-    floatingCharacters.forEach((char) => {
-        let x = (event.clientX / window.innerWidth) * 10;
-        let y = (event.clientY / window.innerHeight) * 10;
-        char.style.transform = `translate(${x}px, ${y}px)`;
-    });
-});
