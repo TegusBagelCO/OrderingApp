@@ -6,7 +6,7 @@
 
 .floating-character {
     position: absolute;
-    max-width: 80px;
+    max-width: 200px;
     pointer-events: none;
     animation: float 6s ease-in-out infinite;
 }
