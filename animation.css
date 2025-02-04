@@ -1,129 +1,25 @@
-/* Character Animations */
-.floating {
-    animation: float 6s ease-in-out infinite;
-    will-change: transform;
-}
-
-.character-group {
-    position: relative;
-    height: 200px;
-    margin: 20px 0;
-}
-
-.character-group img {
-    position: absolute;
-    max-height: 150px;
-    object-fit: contain;
-}
-
 /* Floating Animation */
 @keyframes float {
-    0%, 100% {
-        transform: translateY(0);
-    }
-    50% {
-        transform: translateY(-20px);
-    }
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
 }
 
-/* Steam Animation */
-.steam-elements {
+.floating-character {
     position: absolute;
-    width: 100%;
-    height: 100px;
-    bottom: 0;
-    display: flex;
-    justify-content: space-around;
-    z-index: 2;
+    max-width: 80px;
     pointer-events: none;
+    animation: float 6s ease-in-out infinite;
 }
 
-.steam-elements img {
-    width: 50px;
-    animation: steam 7s linear infinite;
-}
-
-.steam-elements img:nth-child(even) {
-    animation-delay: 3.5s;
-}
-
-@keyframes steam {
-    0% {
-        transform: translateY(0) scale(0);
-        opacity: 0;
-    }
-    50% {
-        opacity: 1;
-    }
-    100% {
-        transform: translateY(-80vh) scale(1);
-        opacity: 0;
-    }
-}
-
-/* Character Specific Animations */
-#papa-bagel { left: 10%; animation-delay: 0s; }
-#mama-bagel { left: 40%; animation-delay: 0.5s; }
-#baby-bagel { left: 70%; animation-delay: 1s; }
-
-#cream-cheese { left: 5%; animation-delay: 0.2s; }
-#jelly { left: 35%; animation-delay: 0.7s; }
-#nutella { left: 65%; animation-delay: 1.2s; }
-
-#avocado { left: 15%; animation-delay: 0.4s; }
-#bacon { left: 45%; animation-delay: 0.9s; }
-#eggs { left: 75%; animation-delay: 1.4s; }
-
-/* Parallax Image Transitions */
-section img {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    pointer-events: none;
-    transition: transform 0.5s ease-out;
-    will-change: transform;
-}
-
-.bg-layers {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.5s ease-out;
-    will-change: transform;
-}
-
-/* Hover Effects */
-.social-media:hover {
-    transform: scale(1.1);
-}
-
-.social-media:hover .icon {
-    background: #8B4513;
-    color: #fff;
-}
-
-/* Loading Animation */
-.loading {
-    animation: fadeIn 1s ease-in;
-}
-
-@keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-}
-
-/* Scroll Reveal Animation */
-.reveal {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: all 0.8s ease;
-}
-
-.reveal.active {
-    opacity: 1;
-    transform: translateY(0);
-}
+/* Custom Positions for Floating Characters */
+.floating-1 { left: 10%; top: 20%; }
+.floating-2 { right: 15%; top: 30%; }
+.floating-3 { left: 20%; top: 50%; }
+.floating-4 { right: 10%; top: 60%; }
+.floating-5 { left: 30%; top: 70%; }
+.floating-6 { left: 5%; top: 40%; }
+.floating-7 { right: 20%; top: 50%; }
+.floating-8 { left: 15%; top: 60%; }
+.floating-9 { right: 25%; top: 20%; }
+.floating-10 { left: 10%; top: 70%; }
+.floating-11 { right: 10%; top: 40%; }
