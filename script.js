@@ -27,7 +27,7 @@ document.querySelectorAll('.sidebar a').forEach(link => {
 // Back-to-Top Button
 const backToTopButton = document.getElementById('top');
 window.addEventListener('scroll', () => {
-    if (window.scrollY > 300) {
+    if (window.scrollY > 600) {
         backToTopButton.classList.add('show');
     } else {
         backToTopButton.classList.remove('show');
