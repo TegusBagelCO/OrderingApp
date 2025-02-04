@@ -25,23 +25,26 @@ document.addEventListener('click', (e) => {
     }
 });
 
-// Back-to-Top Button
+// Back-to-Top Button and Order Button
 const backToTopButton = document.getElementById('top');
+const orderButton = document.querySelector('.order-btn');
 const footer = document.querySelector('.footer');
 
 window.addEventListener('scroll', () => {
     const footerRect = footer.getBoundingClientRect();
-    const buttonRect = backToTopButton.getBoundingClientRect();
-    const bottomOffset = 30; // Default bottom position
-
+    const bottomOffset = 30;
+    
     if (window.innerHeight + window.scrollY >= document.body.offsetHeight - 100) {
         backToTopButton.classList.add('show');
         if (footerRect.top <= window.innerHeight) {
-            backToTopButton.style.bottom = `${window.innerHeight - footerRect.top + bottomOffset}px`;
+            const newPosition = window.innerHeight - footerRect.top + bottomOffset;
+            backToTopButton.style.bottom = `${newPosition}px`;
+            orderButton.style.bottom = `${newPosition + 50}px`;
         }
     } else {
         backToTopButton.classList.remove('show');
         backToTopButton.style.bottom = `${bottomOffset}px`;
+        orderButton.style.bottom = '80px';
     }
 });
 
