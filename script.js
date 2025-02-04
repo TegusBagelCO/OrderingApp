@@ -1,43 +1,49 @@
-// Smooth Scroll for Navigation Links
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        e.preventDefault();
+// JavaScript for Parallax Effect
+document.addEventListener('scroll', function() {
+    requestAnimationFrame(applyParallax);
+});
 
-        document.querySelector(this.getAttribute('href')).scrollIntoView({
-            behavior: 'smooth',
-            block: 'start'
+function applyParallax() {
+    const parallaxSections = document.querySelectorAll('.parallax-section');
+    parallaxSections.forEach(section => {
+        const background = section.querySelector('.parallax-background');
+        if (background) {
+            const scrollPosition = window.pageYOffset;
+            const sectionTop = section.offsetTop;
+            const sectionHeight = section.offsetHeight;
+            const scrollPercent = (scrollPosition - sectionTop) / sectionHeight;
+            const parallaxOffset = scrollPercent * 50; // Adjust the multiplier for speed
+            background.style.transform = `translateY(${parallaxOffset}px)`;
+        }
+    });
+}
+
+// Smooth scrolling for navigation links
+document.querySelectorAll('.sticky-nav a').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        const targetId = this.getAttribute('href');
+        document.querySelector(targetId).scrollIntoView({
+            behavior: 'smooth'
         });
     });
 });
 
-// Floating Element Animations
-const floatingElements = document.querySelectorAll('.floating');
-floatingElements.forEach(element => {
-    element.style.animation = 'float 6s ease-in-out infinite';
-});
-
-// Scroll Reveal on Scroll
-const revealElements = document.querySelectorAll('.reveal');
-const revealOnScroll = () => {
-    revealElements.forEach((el) => {
-        const windowHeight = window.innerHeight;
-        const elementTop = el.getBoundingClientRect().top;
-        const elementVisible = 150;
-
-        if (elementTop < windowHeight - elementVisible) {
-            el.classList.add('active');
-        }
-    });
-};
-
-window.addEventListener('scroll', revealOnScroll);
-document.addEventListener('DOMContentLoaded', revealOnScroll);
-
-// Back-to-Top Button
-const backToTopButton = document.getElementById('top');
-backToTopButton.addEventListener('click', () => {
+// Back to Top button
+document.querySelector('.back-to-top').addEventListener('click', function(e) {
+    e.preventDefault();
     window.scrollTo({
         top: 0,
         behavior: 'smooth'
+    });
+});
+
+// Add floating characters animation
+document.addEventListener("mousemove", (event) => {
+    let floatingCharacters = document.querySelectorAll(".floating-char");
+    floatingCharacters.forEach((char) => {
+        let x = (event.clientX / window.innerWidth) * 10;
+        let y = (event.clientY / window.innerHeight) * 10;
+        char.style.transform = `translate(${x}px, ${y}px)`;
     });
 });
