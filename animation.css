@@ -9,6 +9,11 @@
     max-width: 200px;
     pointer-events: none;
     animation: float 6s ease-in-out infinite;
+    transition: transform 0.2s ease-in-out;
+}
+
+.floating-character:hover {
+    transform: scale(1.1);
 }
 
 /* Custom Positions for Floating Characters */
