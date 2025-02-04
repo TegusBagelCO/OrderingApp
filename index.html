@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tegus Bagel Company</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="animation.css">
+    <link rel="stylesheet" href="components.css">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <!-- Favicon -->
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -13,24 +17,23 @@
 </head>
 <body>
     <!-- Header/Nav Bar -->
-<header id="header">
-    <a href="#" class="logo">Tegus Bagel Co.</a>
-    <ul>
-        <li><a href="#section1" class="active">Inicio</a></li>
-        <li><a href="#section2">Bagels</a></li>
-        <li><a href="#section3">Café</a></li>
-        <li><a href="#section4">Snacks</a></li>
-        <li><a href="#section5">Mercancía</a></li>
-        <li><a href="#footer">Contacto</a></li>
-    </ul>
-</header>
-
-    <!-- Hamburger Icon for Mobile -->
-    <div class="hamburger" id="hamburger">
-        <span></span>
-        <span></span>
-        <span></span>
-    </div>
+    <header id="header">
+        <a href="#" class="logo">Tegus Bagel Co.</a>
+        <ul>
+            <li><a href="#section1" class="active">Inicio</a></li>
+            <li><a href="#section2">Bagels</a></li>
+            <li><a href="#section3">Café</a></li>
+            <li><a href="#section4">Snacks</a></li>
+            <li><a href="#section5">Mercancía</a></li>
+            <li><a href="#footer">Contacto</a></li>
+        </ul>
+        <!-- Hamburger Icon for Mobile -->
+        <div class="hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </header>
 
     <!-- Sidebar Menu for Mobile -->
     <nav class="sidebar" id="sidebar">
@@ -46,6 +49,10 @@
     <!-- Parallax Sections -->
     <section class="parallax-section" id="section1">
         <div class="parallax-background" style="background-image: url('images/bagel-background.jpeg');"></div>
+        <!-- Floating Characters -->
+        <img src="images/BLUEBERRY.png" class="floating-character floating-1" alt="blueberry">
+        <img src="images/STRAWBERRY.png" class="floating-character floating-2" alt="strawberry">
+        <img src="images/avocado.png" class="floating-character floating-3" alt="avocado">
         <div class="content">
             <h1>Bienvenido a Tegus Bagel Co.</h1>
             <p>¡Empieza tu mañana al estilo bagel! Desplácese hacia abajo para ver opciones deliciosas...</p>
@@ -54,6 +61,9 @@
 
     <section class="parallax-section" id="section2">
         <div class="parallax-background" style="background-image: url('images/toppings-background.jpg');"></div>
+        <!-- Floating Characters -->
+        <img src="images/egg.png" class="floating-character floating-4" alt="egg">
+        <img src="images/peanut-butter.png" class="floating-character floating-5" alt="peanut butter">
         <div class="content">
             <h1>Bagels y aderezos</h1>
             <p>Elija entre una variedad de bagels frescos y deliciosos aderezos para satisfacer sus antojos.</p>
@@ -62,6 +72,9 @@
 
     <section class="parallax-section" id="section3">
         <div class="parallax-background" style="background-image: url('images/coffee-background.jpg');"></div>
+        <!-- Floating Characters -->
+        <img src="images/NUTELLA.png" class="floating-character floating-6" alt="nutella">
+        <img src="images/citrus.png" class="floating-character floating-7" alt="citrus">
         <div class="content">
             <h1>Combinaciones de desayuno</h1>
             <p>¡Combina tus bagels con una bebida refrescante o una taza de café caliente!</p>
@@ -70,6 +83,9 @@
 
     <section class="parallax-section" id="section4">
         <div class="parallax-background" style="background-image: url('images/snacks.jpg');"></div>
+        <!-- Floating Characters -->
+        <img src="images/MUNCH.png" class="floating-character floating-8" alt="munch">
+        <img src="images/tocino.png" class="floating-character floating-9" alt="tocino">
         <div class="content">
             <h1>Snacks y Postres</h1>
             <p>¿Tienes antojos de algo dulce por la mañana? Disfruta de nuestros deliciosos snacks y postres para un rápido impulso de energía o para satisfacer tus antojos.</p>
@@ -78,13 +94,16 @@
 
     <section class="parallax-section" id="section5">
         <div class="parallax-background" style="background-image: url('images/merch.png');"></div>
+        <!-- Floating Characters -->
+        <img src="images/nutella-carton.png" class="floating-character floating-10" alt="nutella carton">
+        <img src="images/JAM.png" class="floating-character floating-11" alt="jam">
         <div class="content">
             <h1>Mercancía Tegus Bagel Co.</h1>
             <p>¡Llévate contigo el universo de Los Schmearables! Descubre nuestra increíble colección de mercancía, desde llaveros con forma de bagel hasta camisetas, arte para tu pared y mucho más. ¡Convierte tu amor por los bagels en estilo!</p>
         </div>
     </section>
 
-        <!-- Footer -->
+    <!-- Footer -->
     <div class="footer" id="footer">
         Síguenos en:
         <div class="wrapper">
@@ -116,14 +135,13 @@
         <span>Un sitio creado con ♥ por <span id="creator-name">©Tegus Bagel Co.</span><br>Tegucigalpa, Honduras 2025 </span>
     </div>
 
-
-    <!-- Order Now button -->
+    <!-- Order Now Button -->
     <a href="https://tegusbagelco.zobaze.shop/catalog" class="order-btn">Ordene ahora</a>
 
     <!-- Back to Top Button -->
-    <a href="#section1" class="back-to-top">↑</a>
+    <a href="#section1" id="top">↑</a>
 
-    <!-- JavaScript for Parallax, Smooth Scrolling, and Mobile Menu -->
+    <!-- JavaScript -->
     <script src="script.js"></script>
 </body>
 </html>
