@@ -1,6 +1,6 @@
 /* Parallax Sections */
 .parallax-section {
-    position: relative;
+    position: center;
     height: 100vh;
     overflow: hidden;
 }
@@ -13,7 +13,7 @@
     height: 100%;
     background-size: cover;
     background-position: center;
-    z-index: -1;
+    z-index: 1000;
 }
 
 /* Order Button */
