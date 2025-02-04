@@ -18,6 +18,8 @@
     background-size: cover;
     background-position: center;
     z-index: -1;
+    transform: translateZ(0); /* Optimize for performance */
+    will-change: transform; /* Hint for smoother animations */
 }
 
 /* Order Button */
