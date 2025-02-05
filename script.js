@@ -63,15 +63,55 @@ backToTopButton.addEventListener('click', () => {
     });
 });
 
-// Floating Characters Interaction
-document.querySelectorAll('.floating-character').forEach(character => {
-    character.addEventListener('mousemove', (e) => {
-        const x = e.clientX - character.getBoundingClientRect().left;
-        const y = e.clientY - character.getBoundingClientRect().top;
-        character.style.transform = `translate(${x * 0.1}px, ${y * 0.1}px)`;
-    });
+// First, let's get all our floating characters
+const floatingCharacters = document.querySelectorAll('.floating-character');
 
-    character.addEventListener('mouseleave', () => {
+// This function calculates how far the mouse is from the character
+function getDistance(mouseX, mouseY, characterX, characterY) {
+    const dx = mouseX - characterX;
+    const dy = mouseY - characterY;
+    return Math.sqrt(dx * dx + dy * dy);
+}
+
+// This function moves the character away from the mouse
+function moveAway(character, mouseX, mouseY, strength = 100) {
+    // Get the character's position
+    const rect = character.getBoundingClientRect();
+    const characterX = rect.left + rect.width / 2;
+    const characterY = rect.top + rect.height / 2;
+
+    // Calculate the distance
+    const distance = getDistance(mouseX, characterY, characterX, characterY);
+    
+    // Only move if the mouse is close (within 200 pixels)
+    if (distance < 200) {
+        // Calculate how much to move (closer = move more)
+        const moveScale = (200 - distance) / 200;
+        
+        // Calculate the direction to move
+        const moveX = (characterX - mouseX) * moveScale * strength;
+        const moveY = (characterY - mouseY) * moveScale * strength;
+        
+        // Apply the movement with a smooth transition
+        character.style.transition = 'transform 0.3s ease-out';
+        character.style.transform = `translate(${moveX}px, ${moveY}px)`;
+    } else {
+        // If mouse is far away, return to original position
+        character.style.transform = 'translate(0, 0)';
+    }
+}
+
+// Add mouse move listener to the document
+document.addEventListener('mousemove', (e) => {
+    // For each character, calculate and apply the movement
+    floatingCharacters.forEach(character => {
+        moveAway(character, e.clientX, e.clientY);
+    });
+});
+
+// When mouse leaves, return characters to original positions
+document.addEventListener('mouseleave', () => {
+    floatingCharacters.forEach(character => {
         character.style.transform = 'translate(0, 0)';
     });
 });
