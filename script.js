@@ -6,6 +6,14 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             behavior: 'smooth',
             block: 'start'
         });
+
+        // Remove active class from all links
+        document.querySelectorAll('header ul li a').forEach(link => {
+            link.classList.remove('active');
+        });
+
+        // Add active class to the clicked link
+        this.classList.add('active');
     });
 });
 
